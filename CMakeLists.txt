@@ -12,7 +12,9 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
-add_executable(start main.c)
+add_executable(start
+        main.c
+        gtk_functions.c)
 
 TARGET_LINK_LIBRARIES(start ${GTK3_LIBRARIES})
 

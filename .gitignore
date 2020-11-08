@@ -80,3 +80,5 @@ cmake-build-debug-wsl/
 cmake-build-release-msys2/
 
 cmake-build-debug-msys2/
+
+gui_files/gui.glade~
