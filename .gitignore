@@ -78,3 +78,5 @@ _deps
 cmake-build-debug-wsl/
 
 cmake-build-release-msys2/
+
+cmake-build-debug-msys2/
