@@ -6,11 +6,49 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////
 void on_button_calcul_clicked() {
-    printf("Number 1 : %s\n", gtk_entry_get_text(widgets->entry_number_1));
-    printf("Number 2 : %s\n", gtk_entry_get_text(widgets->entry_number_2));
-    printf("Operator : %s\n", gtk_combo_box_text_get_active_text(widgets->combo_operator));
+    process_operation();
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+
+void hide_statut_bar() {
+    gtk_widget_hide((GtkWidget *) widgets->label_statut);
+}
+
+void show_statut_bar(const char *message) {
+    gtk_label_set_text(widgets->label_statut, message);
+    gtk_widget_show((GtkWidget *) widgets->label_statut);
+}
+
+void process_operation() {
+    hide_statut_bar();
+    if (validate_number(widgets->entry_number_1) && validate_number(widgets->entry_number_2)) {
+        switch (gtk_combo_box_text_get_active_text(widgets->combo_operator)[0]) {
+            case '+':
+                break;
+            case '-':
+                break;
+            case '*':
+                break;
+            case '/':
+                break;
+            default:
+                show_statut_bar("An error occured with operator");
+                break;
+        }
+    } else {
+        show_statut_bar("Wrong input !");
+    }
+}
+
+int validate_number(GtkEntry *entry) {
+    char *endPtr;
+
+    strtod(gtk_entry_get_text(entry), &endPtr);
+    if (endPtr == gtk_entry_get_text(entry)) {
+        return 0;
+    }
+    return 1;
+}
 
 void startGTK(int *argc, char ***argv, char *gladeFile) {
     gtk_init(argc, argv);
@@ -23,6 +61,7 @@ void startGTK(int *argc, char ***argv, char *gladeFile) {
     g_object_unref(builder);
 
     gtk_widget_show_all((GtkWidget *) widgets->window);
+    hide_statut_bar();
 
     gtk_main();
 

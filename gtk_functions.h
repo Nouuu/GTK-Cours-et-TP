@@ -7,6 +7,7 @@
 
 #include <gtk/gtk.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 
 //Construire GTK depuis le fichier glade
@@ -38,5 +39,12 @@ void startGTK(int *argc, char ***argv, char *gladeFile);
 
 void connectWidgets();
 
+void hide_statut_bar();
+
+void show_statut_bar(const char *message);
+
+void process_operation();
+
+int validate_number(GtkEntry *entry);
 
 #endif //GTK_TP_GTK_FUNCTIONS_H
