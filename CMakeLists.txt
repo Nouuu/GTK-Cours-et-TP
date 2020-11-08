@@ -12,6 +12,11 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
+#Pour linux
+if (UNIX)
+    set(CMAKE_EXE_LINKER_FLAGS "-Wl,-export-dynamic")
+endif (UNIX)
+
 add_executable(start
         main.c
         gtk_functions.c)
