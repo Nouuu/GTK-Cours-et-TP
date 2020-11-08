@@ -4,55 +4,150 @@
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkWindow" id="window">
     <property name="can-focus">False</property>
+    <property name="title" translatable="yes">My handy calculator</property>
     <property name="resizable">False</property>
-    <property name="default-width">440</property>
-    <property name="default-height">250</property>
+    <property name="default-width">1000</property>
+    <property name="default-height">500</property>
+    <property name="icon-name">accessories-calculator-symbolic</property>
     <child>
       <object class="GtkFixed">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <child>
-          <object class="GtkLabel" id="text">
-            <property name="width-request">420</property>
-            <property name="height-request">30</property>
+          <object class="GtkBox">
+            <property name="width-request">980</property>
+            <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="justify">fill</property>
-            <property name="xalign">0.05000000074505806</property>
+            <property name="halign">start</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="margin-top">20</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">calculator_resized.png</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">My handy calculator</property>
+                <attributes>
+                  <attribute name="font-desc" value="Castellar Bold 20"/>
+                  <attribute name="underline" value="True"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">calculator_resized.png</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
           </object>
-          <packing>
-            <property name="x">10</property>
-            <property name="y">20</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkButton" id="button_1">
-            <property name="label" translatable="yes">Click me</property>
-            <property name="width-request">100</property>
-            <property name="height-request">60</property>
+          <object class="GtkBox">
+            <property name="width-request">960</property>
+            <property name="height-request">100</property>
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <signal name="clicked" handler="on_button_1_clicked" swapped="no"/>
+            <property name="can-focus">False</property>
+            <property name="margin-start">20</property>
+            <property name="margin-end">20</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="placeholder-text" translatable="yes">0</property>
+                <property name="input-purpose">number</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="active">0</property>
+                <items>
+                  <item translatable="yes">+</item>
+                  <item translatable="yes">-</item>
+                  <item id="&lt;Saisir un identifiant&gt;" translatable="yes">*</item>
+                  <item translatable="yes">/</item>
+                </items>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="placeholder-text" translatable="yes">0</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">=</property>
+                <attributes>
+                  <attribute name="font-desc" value="Sans Bold 30"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
           </object>
           <packing>
-            <property name="x">160</property>
-            <property name="y">160</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEntry" id="gtk_textfield">
-            <property name="width-request">200</property>
-            <property name="height-request">40</property>
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="max-length">100</property>
-            <property name="primary-icon-stock">gtk-justify-center</property>
-            <property name="placeholder-text" translatable="yes">Ecris quelque chose</property>
-          </object>
-          <packing>
-            <property name="x">10</property>
-            <property name="y">100</property>
+            <property name="y">200</property>
           </packing>
         </child>
       </object>
