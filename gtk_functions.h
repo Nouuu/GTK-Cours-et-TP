@@ -14,9 +14,12 @@ static GtkBuilder *builder;
 
 typedef struct {
     GtkWindow *window;
-    GtkButton *button_1;
-    GtkEntry *gtk_textfield;
-    GtkLabel *text;
+    GtkEntry *entry_number_1;
+    GtkEntry *entry_number_2;
+    GtkComboBoxText *combo_operator;
+    GtkLabel *label_result;
+    GtkButton *button_calcul;
+    GtkLabel *label_statut;
 } App_widgets;
 
 static App_widgets *widgets;
@@ -24,7 +27,7 @@ static App_widgets *widgets;
 ///////////////////////////////////////////////////////////////////////////////////////
 #if defined(__WIN32) || defined(WIN32)
 
-G_MODULE_EXPORT void on_button_1_clicked();
+G_MODULE_EXPORT void on_button_calcul_clicked();
 
 #endif
 ///////////////////////////////////////////////////////////////////////////////////////

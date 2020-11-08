@@ -5,15 +5,11 @@
 #include "gtk_functions.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
-void on_button_1_clicked() {
-    const char *entry = gtk_entry_get_text(widgets->gtk_textfield);
-    if (strlen(entry) > 0) {
-        gtk_label_set_text(widgets->text, entry);
-    }
-
+void on_button_calcul_clicked() {
+    printf("Number 1 : %s\n", gtk_entry_get_text(widgets->entry_number_1));
+    printf("Number 2 : %s\n", gtk_entry_get_text(widgets->entry_number_2));
+    printf("Operator : %s\n", gtk_combo_box_text_get_active_text(widgets->combo_operator));
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////
 
 void startGTK(int *argc, char ***argv, char *gladeFile) {
@@ -31,15 +27,19 @@ void startGTK(int *argc, char ***argv, char *gladeFile) {
     gtk_main();
 
     g_slice_free(App_widgets, widgets);
+    printf("Closing app\n");
 }
 
 void connectWidgets() {
     widgets = g_slice_new(App_widgets);
 
     widgets->window = GTK_WINDOW(gtk_builder_get_object(builder, "window"));
-    widgets->button_1 = GTK_BUTTON(gtk_builder_get_object(builder, "button_1"));
-    widgets->gtk_textfield = GTK_ENTRY(gtk_builder_get_object(builder, "gtk_textfield"));
-    widgets->text = GTK_LABEL(gtk_builder_get_object(builder, "text"));
+    widgets->entry_number_1 = GTK_ENTRY(gtk_builder_get_object(builder, "entry_number_1"));
+    widgets->entry_number_2 = GTK_ENTRY(gtk_builder_get_object(builder, "entry_number_2"));
+    widgets->combo_operator = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder, "combo_operator"));
+    widgets->label_result = GTK_LABEL(gtk_builder_get_object(builder, "label_result"));
+    widgets->button_calcul = GTK_BUTTON(gtk_builder_get_object(builder, "button_calcul"));
+    widgets->label_statut = GTK_LABEL(gtk_builder_get_object(builder, "label_statut"));
 }
 
 void onDestroy() {

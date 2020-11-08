@@ -20,9 +20,6 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="halign">start</property>
-            <property name="margin-start">10</property>
-            <property name="margin-end">10</property>
-            <property name="margin-top">20</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
@@ -65,6 +62,10 @@
               </packing>
             </child>
           </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">20</property>
+          </packing>
         </child>
         <child>
           <object class="GtkBox">
@@ -76,10 +77,10 @@
             <property name="margin-end">20</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_number_1">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="placeholder-text" translatable="yes">0</property>
+                <property name="text" translatable="yes">0</property>
                 <property name="input-purpose">number</property>
               </object>
               <packing>
@@ -89,7 +90,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBoxText">
+              <object class="GtkComboBoxText" id="combo_operator">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="active">0</property>
@@ -107,9 +108,10 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_number_2">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="text" translatable="yes">0</property>
                 <property name="placeholder-text" translatable="yes">0</property>
               </object>
               <packing>
@@ -134,10 +136,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_result">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">label</property>
+                <property name="label" translatable="yes">result</property>
+                <property name="selectable">True</property>
+                <attributes>
+                  <attribute name="font-desc" value="Sans Bold 15"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -148,6 +154,34 @@
           </object>
           <packing>
             <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button_calcul">
+            <property name="label" translatable="yes">CALCUL</property>
+            <property name="width-request">100</property>
+            <property name="height-request">60</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button_calcul_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">450</property>
+            <property name="y">360</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_statut">
+            <property name="width-request">100</property>
+            <property name="height-request">50</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Statut bar</property>
+            <property name="xalign">0</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">440</property>
           </packing>
         </child>
       </object>
