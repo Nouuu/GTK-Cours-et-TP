@@ -15,6 +15,7 @@ void hide_statut_bar() {
 }
 
 void show_statut_bar(const char *message) {
+    gtk_label_set_text(widgets->label_result, "?");
     gtk_label_set_text(widgets->label_statut, message);
     gtk_widget_show((GtkWidget *) widgets->label_statut);
 }
@@ -22,14 +23,20 @@ void show_statut_bar(const char *message) {
 void process_operation() {
     hide_statut_bar();
     if (validate_number(widgets->entry_number_1) && validate_number(widgets->entry_number_2)) {
+        double number1 = strtod(gtk_entry_get_text(widgets->entry_number_1), NULL);
+        double number2 = strtod(gtk_entry_get_text(widgets->entry_number_2), NULL);
         switch (gtk_combo_box_text_get_active_text(widgets->combo_operator)[0]) {
             case '+':
+                add(number1, number2);
                 break;
             case '-':
+                substract(number1, number2);
                 break;
             case '*':
+                multiply(number1, number2);
                 break;
             case '/':
+                divide(number1, number2);
                 break;
             default:
                 show_statut_bar("An error occured with operator");
@@ -49,6 +56,35 @@ int validate_number(GtkEntry *entry) {
     }
     return 1;
 }
+
+void add(double number1, double number2) {
+    char result[30] = {0};
+    sprintf(result, "%.2lf", number1 + number2);
+    gtk_label_set_text(widgets->label_result, result);
+}
+
+void substract(double number1, double number2) {
+    char result[30] = {0};
+    sprintf(result, "%.2lf", number1 - number2);
+    gtk_label_set_text(widgets->label_result, result);
+}
+
+void multiply(double number1, double number2) {
+    char result[30] = {0};
+    sprintf(result, "%.2lf", number1 * number2);
+    gtk_label_set_text(widgets->label_result, result);
+}
+
+void divide(double number1, double number2) {
+    char result[30] = {0};
+    if (number2 == 0.) {
+        show_statut_bar("ERROR ! Divide by 0");
+        return;
+    }
+    sprintf(result, "%.2lf", number1 / number2);
+    gtk_label_set_text(widgets->label_result, result);
+}
+
 
 void startGTK(int *argc, char ***argv, char *gladeFile) {
     gtk_init(argc, argv);

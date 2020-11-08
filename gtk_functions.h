@@ -47,4 +47,12 @@ void process_operation();
 
 int validate_number(GtkEntry *entry);
 
+void add(double number1, double number2);
+
+void substract(double number1, double number2);
+
+void multiply(double number1, double number2);
+
+void divide(double number1, double number2);
+
 #endif //GTK_TP_GTK_FUNCTIONS_H

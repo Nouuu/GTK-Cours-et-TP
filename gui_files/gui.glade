@@ -141,6 +141,8 @@
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">result</property>
                 <property name="selectable">True</property>
+                <property name="width-chars">10</property>
+                <property name="max-width-chars">10</property>
                 <attributes>
                   <attribute name="font-desc" value="Sans Bold 15"/>
                 </attributes>
