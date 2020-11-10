@@ -89,14 +89,14 @@ void divide(double number1, double number2) {
 void startGTK(int *argc, char ***argv, char *gladeFile) {
     gtk_init(argc, argv);
     builder = gtk_builder_new_from_file(gladeFile);
+
     connectWidgets();
 
     g_signal_connect(widgets->window, "destroy", G_CALLBACK(onDestroy), NULL);
 
     gtk_builder_connect_signals(builder, NULL);
-    g_object_unref(builder);
 
-    gtk_widget_show_all((GtkWidget *) widgets->window);
+    gtk_widget_show_all(GTK_WIDGET(widgets->window));
     hide_statut_bar();
 
     gtk_main();
