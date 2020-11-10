@@ -74,11 +74,6 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
-
-cmake-build-debug-wsl/
-
-cmake-build-release-msys2/
-
-cmake-build-debug-msys2/
+cmake-build-debug*/
 
 gui_files/gui.glade~
