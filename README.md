@@ -6,7 +6,7 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
 
 - [Présentation](#presentation)
 - [Pré-requis](#pre-requis)
-  * [Installer MinGW, MSYS2 ou WSL (Pour windows)](#installer-mingw-msys2-ou-wsl-pour-windows)
+  * [Installer MSYS2 ou WSL (Pour windows)](#installer-msys2-ou-wsl-pour-windows)
   * [MSYS2, installation GTK et Glade](#msys2-installation-gtk-et-glade)
   * [WSL / Linux, Installation GTK et Glade](#wsl--linux-installation-gtk-et-glade)
     + [WSL, lancer une application graphique](#wsl-lancer-une-application-graphique)
@@ -31,7 +31,7 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
 
 # Présentation
 
-Nous allons voir comment développer une application GTK en C à l'aide de CMake, que ce soit sur Linux, et même Windows (avec MinGW, MSYS2 et même WSL !
+Nous allons voir comment développer une application GTK en C à l'aide de CMake, que ce soit sur Linux, et même Windows (avec MSYS2 et même WSL !)
 
 **GTK** (The **G**IMP **T**ool**k**it, anciennement **GTK+**) est un ensemble de bibliothèques logicielles, c'est-à-dire un ensemble de fonctions permettant de réaliser des interfaces graphiques. Cette bibliothèque a été développée originellement pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX.
 
@@ -39,7 +39,7 @@ GTK est un projet libre (licence GNU LGPL 2.1) et multi plate-forme.
 
 # Pré-requis
 
-## Installer MinGW, MSYS2 ou WSL (Pour windows)
+## Installer MSYS2 ou WSL (Pour windows)
 
 [Clion steps](https://www.notion.so/Clion-steps-b6178a704896452c83e48d8e03999ca6)
 
