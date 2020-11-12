@@ -10,7 +10,9 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
   * [MSYS2, installation GTK et Glade](#msys2-installation-gtk-et-glade)
   * [WSL / Linux, Installation GTK et Glade](#wsl--linux-installation-gtk-et-glade)
     + [WSL, lancer une application graphique](#wsl-lancer-une-application-graphique)
-- [1. Configuration CMAKE](#1-configuration-cmake)
+- [1. Configuration CMAKE / MAKEFILE](#1-configuration-cmake--makefile)
+  * [A. CMAKE](#a-cmake)
+  * [B. MAKEFILE](#b-makefile)
 - [2. Glade, premier programme](#2-glade-premier-programme)
   * [A. Keskecé ?](#a-keskece-)
   * [B. Charger un fichier glade en C](#b-charger-un-fichier-glade-en-c)
@@ -95,6 +97,7 @@ L'outils que nous allons prendre (il en existe plusieurs) s'appelle [VcXsrv](htt
 [How to run graphical Linux applications on Windows 10 using the Windows Subsystem for Linux (WSL)](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/)
 
 # 1. Configuration CMAKE
+## A. CMAKE
 
 Pour faire fonctionner GTK correctement, il faut ajouter quelques instructions supplémentaires au `CMakeLists.txt`
 
@@ -130,6 +133,28 @@ add_executable(start main.c)
 # Lie à l'éxecutable la librairie GTK+
 TARGET_LINK_LIBRARIES(start ${GTK3_LIBRARIES})
 ```
+
+## B. MAKEFILE
+
+Petit 👍🖐️ à Clément Bossard pour cette partie.
+
+Pour le **makefile**, voilà à quoi cela doit ressembler
+
+```makefile
+LIB= `pkg-config gtk+-3.0 --libs --cflags`
+LIB+= `pkg-config gmodule-2.0 --libs`
+
+FLAG = -O0 -g -Wall -Wextra -std=c99
+
+FILES = main.c
+NAME = start
+
+build:
+	gcc-8 $(FLAG) $(FILES) -o $(NAME) $(LIB)
+	chmod +x $(NAME)
+```
+
+
 
 # 2. Glade, premier programme
 
