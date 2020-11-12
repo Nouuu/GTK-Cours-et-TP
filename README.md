@@ -4,8 +4,8 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
 
 <!-- toc -->
 
-- [Présentation](#presentation)
-- [Pré-requis](#pre-requis)
+- [Présentation](#présentation)
+- [Pré-requis](#pré-requis)
   * [Installer MSYS2 ou WSL (Pour windows)](#installer-msys2-ou-wsl-pour-windows)
   * [MSYS2, installation GTK et Glade](#msys2-installation-gtk-et-glade)
   * [WSL / Linux, Installation GTK et Glade](#wsl--linux-installation-gtk-et-glade)
@@ -14,15 +14,15 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
   * [A. CMAKE](#a-cmake)
   * [B. MAKEFILE](#b-makefile)
 - [2. Glade, premier programme](#2-glade-premier-programme)
-  * [A. Keskecé ?](#a-keskece-)
+  * [A. Keskecé ?](#a-keskecé-)
   * [B. Charger un fichier glade en C](#b-charger-un-fichier-glade-en-c)
     + [Explications](#explications)
 - [3. Connecter les widgets au code](#3-connecter-les-widgets-au-code)
-- [4. Gérer les signaux / évènements](#4-gerer-les-signaux--evenements)
+- [4. Gérer les signaux / évènements](#4-gérer-les-signaux--évènements)
   * [A. Connecter les signaux](#a-connecter-les-signaux)
   * [B. Déclarer les méthodes pour les signaux](#b-declarer-les-methodes-pour-les-signaux)
-  * [C. Spécificité Windows](#c-specificite-windows)
-  * [D. Spécificité Linux (et Mac ?)](#d-specificite-linux-et-mac-)
+  * [C. Spécificité Windows](#c-spécificité-windows)
+  * [D. Spécificité Linux (et Mac ?)](#d-spécificité-linux-et-mac-)
 - [5. Documentation GTK](#5-documentation-gtk)
 - [Runtime (pour distribuer votre application)](#runtime-pour-distribuer-votre-application)
   * [Windows](#windows)
@@ -33,7 +33,7 @@ Rédigé par **Noé LARRIEU-LACOSTE** ❤️
 
 # Présentation
 
-Nous allons voir comment développer une application GTK en C à l'aide de CMake, que ce soit sur Linux, et même Windows (avec MSYS2 et même WSL !)
+Nous allons voir comment développer une application GTK en C à l'aide de CMake ou Makefile, que ce soit sur Linux, et même Windows (avec MSYS2 et même WSL !)
 
 **GTK** (The **G**IMP **T**ool**k**it, anciennement **GTK+**) est un ensemble de bibliothèques logicielles, c'est-à-dire un ensemble de fonctions permettant de réaliser des interfaces graphiques. Cette bibliothèque a été développée originellement pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX.
 
@@ -96,7 +96,8 @@ L'outils que nous allons prendre (il en existe plusieurs) s'appelle [VcXsrv](htt
 
 [How to run graphical Linux applications on Windows 10 using the Windows Subsystem for Linux (WSL)](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/)
 
-# 1. Configuration CMAKE
+# 1. Configuration CMAKE / MAKEFILE
+
 ## A. CMAKE
 
 Pour faire fonctionner GTK correctement, il faut ajouter quelques instructions supplémentaires au `CMakeLists.txt`
